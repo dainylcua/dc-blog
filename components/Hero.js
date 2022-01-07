@@ -19,7 +19,7 @@ export default function Hero() {
         >{displayTitle ? displayTitle : 'An Unexpected Error'}</button>
       </div>
       <div className="text-zinc-800 dark:text-zinc-200">
-        <div className="w-3/5">I love creating elegant, accessible apps that help solve problems. I primarily use the MERN stack and Jamstack, but I pick up whatever technology is needed for my clients.</div>
+        <div className="w-4/5 pb-4">I love creating elegant, accessible apps that help solve problems. I primarily use the MERN stack and Jamstack, but I can pick up whatever technology is needed.</div>
         <div>Check out my&nbsp;
           <span>
             <a className="underline"
