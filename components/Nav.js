@@ -1,6 +1,7 @@
 import { SiGithub, SiLinkedin, SiTwitter  } from "react-icons/si"
 import { IconContext } from "react-icons/lib"
 import NavLink from "./NavLink"
+import Link from "next/link"
 
 export default function Nav() {
   return(
@@ -14,11 +15,17 @@ export default function Nav() {
           <NavLink name="My Info" href="my-info"/>
         </div>
         <div className="self-end w-1/5">
-            <IconContext.Provider value={{ className: "text-zinc-900 dark:text-rose-200", size: "1.5em"}}>
+            <IconContext.Provider value={{ className: "text-zinc-900 dark:text-rose-200 cursor-pointer", size: "1.5em"}}>
               <div className="flex justify-between">
-                <SiGithub />
-                <SiLinkedin />
-                <SiTwitter />
+                <Link passHref href="https://github.com/dainylcua/">
+                  <SiGithub />
+                </Link>
+                <Link passHref href="https://www.linkedin.com/in/dainylcua/">
+                  <SiLinkedin />
+                </Link>
+                <Link passHref href="https://twitter.com/dainylcua">
+                  <SiTwitter />
+                </Link>
               </div>
             </IconContext.Provider>
         </div>
