@@ -9,7 +9,7 @@ export default function Nav() {
           <div>Home</div>
           <div>Blogposts</div>
           <div>Goals</div>
-          <div>Timer</div>
+          <div>Pomodoro</div>
           <div>My Info</div>
         </div>
         <div className="self-end w-1/5">

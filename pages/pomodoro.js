@@ -1,9 +1,9 @@
 import Container from "../components/Container"
 
-export default function Home() {
+export default function Pomodoro() {
   return (
     <Container>
-      <div>home</div>
+      <div>pomodoro</div>
     </Container>
   )
 }
