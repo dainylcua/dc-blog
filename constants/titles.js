@@ -1,4 +1,5 @@
 const titles = [
+  'Full-Stack Software Engineer',
   'Tabletop Game Enthusiast',
   'Sims Addict',
   'Baker-to-Be',
@@ -6,13 +7,14 @@ const titles = [
   'Pet Cuddler',
   'Cat Napper',
   'Dog Trainer',
-  'ex-Tuba Player',
+  'ex-Tuba Soloist',
   'Rhythm Sectionist',
   'Twitch Watcher',
   '5th Edition Dungeon Master',
   'Party Game Dominator',
-  'Alphabet Mafia Member',
-  'Multi-Genre Music Enjoyer'
+  'More Than an Ally',
+  'Multi-Genre Music Enjoyer',
+  'Min-Maxer',
 ]
 
 export default titles
