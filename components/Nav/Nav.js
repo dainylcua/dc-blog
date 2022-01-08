@@ -24,12 +24,12 @@ export default function Nav() {
             <NavLink name="Info"/>
           </Link>
         </div>
-        <div className="w-1/5 self-center pr-4">
+        <div className="self-center w-1/5 pr-4">
             <IconContext.Provider value={{ className: "text-zinc-900 hover:text-zinc-500 dark:text-rose-200 dark:hover:text-rose-100 cursor-pointer ", size: "1.5em"}}>
               <div className="flex justify-between">
                 <a href="https://github.com/dainylcua/">
-                </a>
                   <SiGithub />
+                </a>
                 <a href="https://www.aedin.com/in/dainylcua/">
                   <SiLinkedin />
                 </a>
