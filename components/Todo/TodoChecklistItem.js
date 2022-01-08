@@ -1,4 +1,4 @@
-export default function TodoChecklistItem({handleChecklistRemove}) {
+export default function TodoChecklistItem({handleChecklistRemove, item}) {
   return(
     <div className="flex justify-between">
       <div className="break-words">

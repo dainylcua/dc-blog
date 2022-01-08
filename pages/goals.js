@@ -2,6 +2,7 @@ import Head from "next/head"
 import Goal from "../components/Goal"
 import Container from "../components/Container"
 import { getGoals } from "../utils/contentful-graphql"
+import Header from "../components/Header"
 
 export const getStaticProps = async () => {
   const data = await getGoals()
@@ -19,11 +20,10 @@ export default function Goals({goals}) {
         <title>Goals - Dainyl Cua</title>
       </Head>
       <div className="flex flex-col">
-        <div className="flex">
-          <div className="text-5xl lg:text-7xl dark:text-rose-200">
-            Goal
-          </div>
-        </div>
+        <Header>
+          Goals
+        </Header>
+        <div className="pb-4">Below are my goals for 2022 and onwards - what are you working towards?</div>
         <div className="flex flex-col gap-y-4">
           {
             goals.map((goal) => (

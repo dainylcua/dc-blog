@@ -3,6 +3,7 @@ import Container from "../components/Container"
 import Biography from "../components/Biography"
 import Skills from "../components/Skills"
 import MyLinks from "../components/MyLinks"
+import Header from "../components/Header"
 
 export default function MyInfo() {
   return (
@@ -11,7 +12,7 @@ export default function MyInfo() {
         <title>My Info - Dainyl Cua</title>
       </Head>
       <div className="leading-relaxed">
-        <div className="text-5xl lg:text-7xl dark:text-rose-200">About Me</div>
+        <Header>Info</Header>
         <Biography />
         <Skills />
         <MyLinks />

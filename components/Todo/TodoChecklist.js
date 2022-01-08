@@ -8,7 +8,7 @@ export default function TodoChecklist({checklist, handleChecklistRemove, checkli
       <div className="flex flex-col w-5/6">
       {
         checklist.map((item) => (
-          <TodoChecklistItem key={item.count} {...itemProps} />
+          <TodoChecklistItem key={item.count} item={item} {...itemProps} />
         ))
       }
       </div>
