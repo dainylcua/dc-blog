@@ -1,4 +1,6 @@
 import Blogpost from "./Blogpost"
+import Link from "next/link"
+
 export default function Featured({featured}) {
   return (
     <div className="flex flex-col py-16">
@@ -9,6 +11,13 @@ export default function Featured({featured}) {
             <Blogpost key={blogpost.slug} blogpost={blogpost} />
           ))
         }
+      </div>
+      <div className="pt-4">
+        <Link href="/blogposts">
+          <a className="cursor-pointer">
+            Read all posts &rarr;
+          </a>
+        </Link>
       </div>
     </div>
   )

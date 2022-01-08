@@ -2,6 +2,7 @@ import Head from "next/head"
 import Container from "../components/Container"
 import Timer from "../components/Timer/Timer"
 import Todo from "../components/Todo/Todo"
+import Header from "../components/Header"
 
 export default function Pomodoro() {
   return (
@@ -9,8 +10,11 @@ export default function Pomodoro() {
       <Head>
         <title>Pomodoro Timer - Dainyl Cua</title>
       </Head>
-      <Timer />
-      <Todo />
+      <div>
+        <Timer />
+        <Todo />
+      </div>
+      <Header>Pomodoro</Header>
     </Container>
   )
 }
