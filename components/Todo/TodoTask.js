@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TodoChecklist from './TodoChecklist'
 
 export default function TodoTask({todo, handleRemove}) {
   const [checklist, setChecklist] = useState([])
@@ -29,8 +30,10 @@ export default function TodoTask({todo, handleRemove}) {
     setChecklist(checklist)
   }, [checklist])
 
+  const todoChecklistProps = {checklist, handleChecklistRemove, checklistSubmit, checklistInput, inputChange}
+
   return(
-    <div className="flex flex-col w-full px-8 border">
+    <div className="flex flex-col w-full px-8 py-4 border">
       <div className="flex justify-between">
         <div className="break-words">
           {todo.value}
@@ -39,33 +42,7 @@ export default function TodoTask({todo, handleRemove}) {
           x
         </div>
       </div>
-      <div className="flex flex-col items-end">
-        <div className="flex flex-col w-5/6">
-          {
-            checklist.map((item) => (
-              <div key={item.count} className="flex justify-between">
-                <div className="break-words">
-                  {item.value}
-                </div>
-                <div id={item.count} onClick={handleChecklistRemove} className="w-8 border cursor-pointer">
-                  x
-                </div>
-              </div>
-            ))
-          }
-        </div>
-        <div className="self-center">
-          <form onSubmit={checklistSubmit}>
-          <input 
-            type="text" 
-            value={checklistInput} 
-            onChange={inputChange} 
-            placeholder="ex: Pay for candy"
-            className="w-auto text-center dark:bg-zinc-900 dark:border-b border-rose-200" 
-          />
-          </form>
-        </div>
-      </div>
+      <TodoChecklist {...todoChecklistProps} />
     </div>
   )
 }
