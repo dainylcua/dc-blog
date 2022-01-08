@@ -2,12 +2,13 @@ import { useState, useEffect, useCallback } from 'react'
 
 export default function Timer() {
   const [productive, setProductive] = useState(true)
-  const [startTime, setStartTime] = useState(60*60*1000)
+  const [startTime, setStartTime] = useState(25*60*1000)
   const [time, setTime] = useState(25*60*1000)
+  const [inputTime, setInputTime] = useState(25)
   const [displayTime, setDisplayTime] = useState({'hours': '', 'minutes': '', 'seconds': ''})
   const [timerColor, setTimerColor] = useState('')
   const [timerStatus, setTimerStatus] = useState(false)
-  
+
   const toggleTimer = () => {
     setTimerStatus(prevStatus => !prevStatus)
   }
@@ -36,6 +37,18 @@ export default function Timer() {
     const strSeconds = ("0" + seconds.toString()).slice(-2)
     return { 'hours': strHours, 'minutes': strMinutes, 'seconds': strSeconds }
   }, [])
+
+  const timeChange = (e) => {
+    if(parseInt(e.target.value) !== NaN) {
+      if(parseInt(e.target.value) > 0) {
+        setInputTime(parseInt(e.target.value))
+      }
+    }
+  }
+
+  const confirmTimeChange = () => {
+    setStartTime(inputTime*60*1000)
+  }
 
 
   // If startTime changes, set time
@@ -77,11 +90,15 @@ export default function Timer() {
         <div>
           {productive ? 'Productive' : 'Break'} Time!
         </div>
-        <div className={displayTime.hours == '0' ? 'block' : 'hidden'}>
-          {`${displayTime.minutes}:${displayTime.seconds}`}
-        </div>
-        <div className={displayTime.hours == '0' ? 'hidden' : 'block'}>
-          {`${displayTime.hours}:${displayTime.minutes}:${displayTime.seconds}`}
+        <div className="w-2/5 flex justify-between">
+          <button onClick={() => adjustStartTime(60*1000)}>+</button>
+          <div className={displayTime.hours == '0' ? 'block' : 'hidden'}>
+            {`${displayTime.minutes}:${displayTime.seconds}`}
+          </div>
+          <div className={displayTime.hours == '0' ? 'hidden' : 'block'}>
+            {`${displayTime.hours}:${displayTime.minutes}:${displayTime.seconds}`}
+          </div>
+          <button onClick={() => adjustStartTime(-60*1000)}>-</button>
         </div>
       </div>
 
@@ -100,22 +117,23 @@ export default function Timer() {
             Reset
           </button>
         </div>
-        <div className={timerStatus ? 'hidden' : 'block'}>
+        <div className={`${timerStatus ? 'hidden' : 'block'} flex flex-col`}>
           <button onClick={toggleProductive} className='h-8 font-medium'>
-              Switch to {productive ? 'Break' : 'Productive'}
+              Switch to {productive ? 'Break' : 'Productivity'}
           </button>
-          <div>
+          <div className="flex flex-col items-center">
             <label htmlFor="productive">
-              Productive Time (minutes)
+              Set Timer (minutes)
             </label>
             <div>
-              <button onClick={() => adjustStartTime(60*1000)}>+</button>
               <input 
                 className="dark:bg-zinc-900 dark:border-b border-rose-200 w-8"
                 type="number" 
                 name="start-time"
+                onBlur={confirmTimeChange}
+                onChange={timeChange}
+                value={inputTime}
               />
-              <button onClick={() => adjustStartTime(-60*1000)}>-</button>
             </div>
           </div>
         </div>
