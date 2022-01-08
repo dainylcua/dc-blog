@@ -1,5 +1,5 @@
 import titles from "../constants/titles"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Hero() {
   const [title, setTitle] = useState(0)

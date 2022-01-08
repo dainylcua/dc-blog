@@ -1,5 +1,8 @@
 import Head from "next/head"
 import Container from "../components/Container"
+import Biography from "../components/Biography"
+import Skills from "../components/Skills"
+import MyLinks from "../components/MyLinks"
 
 export default function MyInfo() {
   return (
@@ -7,7 +10,11 @@ export default function MyInfo() {
       <Head>
         <title>My Info - Dainyl Cua</title>
       </Head>
-      <div>my-info</div>
+      <div>
+        <Biography />
+        <Skills />
+        <MyLinks />
+      </div>
     </Container>
   )
 }
