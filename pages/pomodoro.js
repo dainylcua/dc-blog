@@ -1,5 +1,5 @@
 import Container from "../components/Container"
-import Timer from "../components/Timer"
+import Timer from "../components/Timer/Timer"
 
 export default function Pomodoro() {
   return (

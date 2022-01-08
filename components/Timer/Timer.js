@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
+import TimerBar from './TimerBar'
+import TimerInput from './TimerInput'
 
 export default function Timer() {
   const [productive, setProductive] = useState(true)
@@ -95,6 +97,10 @@ export default function Timer() {
   useEffect(() => {
     setDisplayTime(convertTime(time))
   }, [time, convertTime])
+
+  // Props
+  const timerProps = {time, startTime, timerColor}
+  const timerInputProps = {confirmTimeChange, checkTimeInput, timeChange, inputTime}
   
   return(
     <section className="flex flex-col w-full">
@@ -114,9 +120,7 @@ export default function Timer() {
         </div>
       </div>
 
-      <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-800">
-        <div className={`h-2 ${timerColor}`} style={{width: `${(1 - time/startTime)*100}%`}}></div>
-      </div>
+      <TimerBar {...timerProps}/>
 
       <div className="w-3/5 mx-auto flex flex-col items-center">
         <div className="flex w-1/5 justify-center mx-auto gap-x-8">
@@ -133,22 +137,7 @@ export default function Timer() {
           <button onClick={toggleProductive} className='h-8 font-medium'>
               Switch to {productive ? 'Break' : 'Productivity'}
           </button>
-          <div className="flex flex-col items-center">
-            <label htmlFor="productive">
-              Set Timer (minutes)
-            </label>
-            <div>
-              <input 
-                className="dark:bg-zinc-900 dark:border-b border-rose-200 w-auto text-center"
-                type="number" 
-                name="start-time"
-                onBlur={confirmTimeChange}
-                onKeyDown={checkTimeInput}
-                onChange={timeChange}
-                value={inputTime}
-              />
-            </div>
-          </div>
+          <TimerInput {...timerInputProps} />
         </div>
       </div>
     </section>

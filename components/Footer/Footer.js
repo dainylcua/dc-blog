@@ -1,5 +1,5 @@
 import FooterLink from "./FooterLink"
-import ScrollToTop from "./ScrollToTop"
+import ScrollToTop from "../ScrollToTop"
 export default function Footer() {
   return(
     <footer>

@@ -1,5 +1,5 @@
-import Footer from "./Footer"
-import Nav from "./Nav"
+import Footer from "./Footer/Footer"
+import Nav from "./Nav/Nav"
 export default function Container({children}) {
   return (
     <div className="h-screen dark:bg-zinc-900 bg-zinc-100 dark:text-white font-medium leading-relaxed">
