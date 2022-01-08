@@ -54,7 +54,7 @@ export default function Timer() {
       setStartTime(24*60*60*1000)
     } else {
       setInputTime(1)
-      setStartTime(1*1000)
+      setStartTime(1*60*1000)
     }
   }
 
@@ -65,7 +65,6 @@ export default function Timer() {
       e.preventDefault()
     }
   }
-
 
   // If startTime changes, set time
   useEffect(() => {
@@ -100,7 +99,6 @@ export default function Timer() {
     setDisplayTime(convertTime(time))
   }, [time, convertTime])
 
-  // Props
   const timerProps = {time, startTime, timerColor}
   const timerButtonProps = {toggleTimer, resetTimer, timerStatus}
   const timerDisplayProps = {productive, adjustStartTime, displayTime}
