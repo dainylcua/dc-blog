@@ -10,7 +10,7 @@ export default function MyInfo() {
       <Head>
         <title>My Info - Dainyl Cua</title>
       </Head>
-      <div>
+      <div className="leading-relaxed">
         <Biography />
         <Skills />
         <MyLinks />

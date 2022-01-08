@@ -4,7 +4,7 @@ export default function Footer() {
   return(
     <footer>
       <div className="border border-zinc-900 dark:border-rose-200 rounded-t-full h-[1.5px]"></div>
-      <div className="flex md:flex-row flex-col py-4 gap-y-4 items-start w-full">
+      <div className="flex flex-col items-start w-full py-4 md:flex-row md:gap-y-4">
         <div className="flex-col flex-grow">
           <FooterLink name="GitHub" href="https://github.com/dainylcua/"/>
           <FooterLink name="LinkedIn" href="https://www.linkedin.com/in/dainylcua/"/>
