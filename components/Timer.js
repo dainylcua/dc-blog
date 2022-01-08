@@ -2,27 +2,28 @@ import { useState, useEffect } from 'react'
 
 export default function Timer() {
   const [productive, setProductive] = useState(true)
-  const [startTime, setStartTime] = useState(1000000)
-  const [time, setTime] = useState(1000000)
+  const [startTime, setStartTime] = useState(10000)
+  const [time, setTime] = useState(10000)
   const [timerColor, setTimerColor] = useState('')
   const [timerStatus, setTimerStatus] = useState(false)
 
   useEffect(() => {
     let interval = null
 
-    if(timerStatus) {
+    if(timerStatus && time > 0) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime-=1000)
       }, 1000)
       setTimerColor('dark:bg-rose-500 bg-lime-500')
     } else {
+      if(time <= 0) setTimerStatus(false)
       clearInterval(interval)
       setTimerColor('dark:bg-sky-500 bg-amber-500')
     }
 
     // Cleanup function (prevents memory leaks)
     return () => clearInterval(interval)
-  }, [timerStatus, timerColor])
+  }, [timerStatus, timerColor, time])
 
   const toggleTimer = () => {
     setTimerStatus(prevStatus => !prevStatus)
@@ -41,8 +42,8 @@ export default function Timer() {
 
   return(
     <section className="flex flex-col w-full">
-      <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-800">
-        <div className={`h-1 ${timerColor}`} style={{width: `${time/startTime}%`}}></div>
+      <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-800">
+        <div className={`h-2 ${timerColor}`} style={{width: `${time/startTime*100}%`}}></div>
       </div>
       <div className="w-3/5 mx-auto flex flex-col items-center">
         <div>
