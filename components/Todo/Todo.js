@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TodoInput from './TodoInput'
 import TodoTask from './TodoTask'
 
 export default function Todo() {
@@ -30,21 +31,13 @@ export default function Todo() {
     setTodos(todos)
   }, [todos])
 
+  const inputProps = {handleSubmit, todoInput, inputChange}
+
 
   return(
     <section className="flex flex-col items-center w-full mx-auto">
       <div>Todo List</div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            value={todoInput} 
-            onChange={inputChange} 
-            placeholder="ex: Get candy"
-            className="w-auto text-center dark:bg-zinc-900 dark:border-b border-rose-200" 
-          />
-        </form>
-      </div>
+      <TodoInput {...inputProps} />      
       <div className="flex flex-col items-center w-3/5 text-center">
         {
           todos.length ? 

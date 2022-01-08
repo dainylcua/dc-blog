@@ -1,4 +1,3 @@
-
 export default function TodoChecklistInput({checklistSubmit, checklistInput, inputChange}) {
   return(
     <div className="self-center">
