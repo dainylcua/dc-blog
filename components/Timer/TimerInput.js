@@ -6,7 +6,7 @@ export default function TimerInput({confirmTimeChange, checkTimeInput, timeChang
             </label>
             <div>
               <input 
-                className="dark:bg-zinc-900 dark:border-b border-rose-200 w-auto text-center"
+                className="w-auto text-center border-b dark:bg-zinc-900 dark:border-rose-200 bg-zinc-100 border-zinc-900"
                 type="number" 
                 name="start-time"
                 onBlur={confirmTimeChange}

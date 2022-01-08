@@ -37,7 +37,7 @@ export default function Todo() {
   return(
     <section className="flex flex-col items-center w-full mx-auto">
       <div>Todo List</div>
-      <TodoInput {...inputProps} />      
+      <TodoInput {...inputProps} />
       <div className="flex flex-col items-center w-3/5 text-center">
         {
           todos.length ? 
