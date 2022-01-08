@@ -22,7 +22,7 @@ export default function BlogPosts({blogposts}) {
       <Header>Blogposts</Header>
       <div>I&apos;m beginning a blog! I will usually post tips and tricks or my learnings on a subject once a week. Check out all my blogposts below.</div>
       <div>Filter to go here</div>
-      <div className="flex flex-col justify-between md:flex-row md:flex-wrap gap-x-8 gap-y-8">
+      <div className="flex flex-col lg:justify-between md:flex-row md:flex-wrap gap-x-8 gap-y-8">
         {
           blogposts.map((blogpost) => (
             <Blogpost key={blogpost.slug} blogpost={blogpost} />
