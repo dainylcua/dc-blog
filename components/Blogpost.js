@@ -1,6 +1,5 @@
 import Link from "next/link"
 export default function Blogpost({blogpost}) {
-
   return(
     <Link passHref href={`/blogposts/${blogpost.slug}`}>
       <div key={blogpost.slug} 

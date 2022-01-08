@@ -29,7 +29,7 @@ export default function Blogpost({blogpost}) {
   return(
     <Container>
       <Head>
-
+      <title>{blogpost.title} - Dainyl Cua</title>
       </Head>
       <div>
         <article className={blogpostStyling}>
