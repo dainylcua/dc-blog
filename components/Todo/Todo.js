@@ -14,7 +14,6 @@ export default function Todo() {
     e.preventDefault()
     const newTodo = {
       'value': todoInput,
-      'checklist': [],
       'count': todoCount
     }
     setTodos(prevState => [...prevState, newTodo])
@@ -22,12 +21,18 @@ export default function Todo() {
     setTodoInput('')
   }
 
+  const handleRemove = (e) => {
+    const count = e.target.getAttribute('id')
+    setTodos(allTodos => allTodos.filter((todo) => todo.count != count))
+  }
+
   useEffect(() => {
     setTodos(todos)
   }, [todos])
 
+
   return(
-    <section className="flex flex-col w-full mx-auto items-center">
+    <section className="flex flex-col items-center w-full mx-auto">
       <div>Todo List</div>
       <div>
         <form onSubmit={handleSubmit}>
@@ -36,7 +41,7 @@ export default function Todo() {
             value={todoInput} 
             onChange={inputChange} 
             placeholder="ex: Get candy"
-            className="dark:bg-zinc-900 dark:border-b border-rose-200 w-auto text-center" 
+            className="w-auto text-center dark:bg-zinc-900 dark:border-b border-rose-200" 
           />
         </form>
       </div>
@@ -44,7 +49,7 @@ export default function Todo() {
         {
           todos.length ? 
             todos.map((todo) => (
-              <TodoTask key={todo.count} value={todo.value}/>
+              <TodoTask key={todo.count} todo={todo} handleRemove={handleRemove}/>
             ))
           :
           'Nothing here. Try adding a Todo!'

@@ -13,6 +13,7 @@ export default function TimerInput({confirmTimeChange, checkTimeInput, timeChang
                 onKeyDown={checkTimeInput}
                 onChange={timeChange}
                 value={inputTime}
+                placeholder="ex: 10"
               />
             </div>
           </div>
