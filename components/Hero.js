@@ -10,13 +10,13 @@ export default function Hero() {
   }
   return(
     <section className="w-full">
-      <div className="py-4">
+      <div className="pb-8">
         <div className="text-5xl lg:text-7xl dark:text-rose-200">Dainyl Cua</div>
         <button 
-          className="hidden md:block text-2xl lg:text-3xl pl-1 dark:text-rose-100 text-zinc-800 lg:animate-[pulse_5s_ease-in-out_infinite] lg:hover:animate-[none_1s_ease-in]"
+          className="hidden md:block text-2xl lg:text-3xl dark:text-rose-100 text-zinc-800 lg:animate-[pulse_5s_ease-in-out_infinite] lg:hover:animate-[none_1s_ease-in]"
           onClick={changeTitle}
         >{displayTitle ? displayTitle : 'An Unexpected Error'}</button>
-        <div className="block pl-1 text-2xl lg:text-3xl dark:text-rose-100 text-zinc-800 md:hidden">{titles[0]}</div>
+        <div className="block text-2xl lg:text-3xl dark:text-rose-100 text-zinc-800 md:hidden">{titles[0]}</div>
       </div>
       <div className="text-zinc-800 dark:text-zinc-200">
         <div className="w-4/5 pb-4">I love creating elegant, accessible apps that help solve problems. I primarily use the MERN stack and Jamstack, but I can pick up whatever technology is needed.</div>

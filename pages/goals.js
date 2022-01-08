@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import Goal from "../components/Goal"
 import Container from "../components/Container"
 import { getGoals } from "../utils/contentful-graphql"
 
@@ -20,30 +20,17 @@ export default function Goals({goals}) {
       </Head>
       <div className="flex flex-col">
         <div className="flex">
-          <div>
+          <div className="text-5xl lg:text-7xl dark:text-rose-200">
             Goal
           </div>
-          <div>
-            Completion Date
-          </div>
         </div>
-        {
-          goals.map((goal) => (
-          <div key={goal.goal} className="flex">
-            <div>
-              {goal.goal}
-            </div>
-            <div>
-              {
-                goal.completionStatus.completed ?
-                goal.completionStatus.completionDate
-                :
-                ''
-              }
-            </div>
-          </div>
-          ))
-        }
+        <div className="flex flex-col gap-y-4">
+          {
+            goals.map((goal) => (
+              <Goal key={goal.goal} goal={goal} />
+            ))
+          }
+        </div>
       </div>
     </Container>
   )
