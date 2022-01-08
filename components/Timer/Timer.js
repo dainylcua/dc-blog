@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import TimerBar from './TimerBar'
-import TimerInput from './TimerInput'
+import TimerButtons from './TimerButtons'
+import TimerDisplay from './TimerDisplay'
+import TimerPopout from './TimerPopout'
 
 export default function Timer() {
   const [productive, setProductive] = useState(true)
@@ -100,45 +102,17 @@ export default function Timer() {
 
   // Props
   const timerProps = {time, startTime, timerColor}
-  const timerInputProps = {confirmTimeChange, checkTimeInput, timeChange, inputTime}
+  const timerButtonProps = {toggleTimer, resetTimer, timerStatus}
+  const timerDisplayProps = {productive, adjustStartTime, displayTime}
+  const timerPopoutProps = {confirmTimeChange, checkTimeInput, timeChange, inputTime, timerStatus, toggleProductive, productive}
   
   return(
     <section className="flex flex-col w-full">
-      <div className="w-3/5 mx-auto flex flex-col items-center">
-        <div>
-          {productive ? 'Productive' : 'Break'} Time!
-        </div>
-        <div className="w-2/5 flex justify-between">
-          <button onClick={() => adjustStartTime(60*1000)}>+</button>
-          <div className={displayTime.hours == '0' ? 'block' : 'hidden'}>
-            {`${displayTime.minutes}:${displayTime.seconds}`}
-          </div>
-          <div className={displayTime.hours == '0' ? 'hidden' : 'block'}>
-            {`${displayTime.hours}:${displayTime.minutes}:${displayTime.seconds}`}
-          </div>
-          <button onClick={() => adjustStartTime(-60*1000)}>-</button>
-        </div>
-      </div>
-
+      <TimerDisplay {...timerDisplayProps} />
       <TimerBar {...timerProps}/>
-
       <div className="w-3/5 mx-auto flex flex-col items-center">
-        <div className="flex w-1/5 justify-center mx-auto gap-x-8">
-          <button onClick={toggleTimer} className="h-8 font-medium">
-            {
-              timerStatus ? 'Stop' : 'Start'
-            }
-          </button>
-          <button onClick={resetTimer} className="h-8 font-medium">
-            Reset
-          </button>
-        </div>
-        <div className={`${timerStatus ? 'hidden' : 'block'} flex flex-col`}>
-          <button onClick={toggleProductive} className='h-8 font-medium'>
-              Switch to {productive ? 'Break' : 'Productivity'}
-          </button>
-          <TimerInput {...timerInputProps} />
-        </div>
+        <TimerButtons {...timerButtonProps} />
+        <TimerPopout {...timerPopoutProps} />
       </div>
     </section>
   )
