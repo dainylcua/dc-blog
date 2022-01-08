@@ -39,15 +39,27 @@ export default function Timer() {
   }, [])
 
   const timeChange = (e) => {
-    if(parseInt(e.target.value) !== NaN) {
-      if(parseInt(e.target.value) > 0) {
-        setInputTime(parseInt(e.target.value))
-      }
+    setInputTime(parseInt(e.target.value) || e.target.value)
+  }
+
+  const confirmTimeChange = (e) => {
+    if(parseInt(e.target.value) !== NaN && parseInt(e.target.value) > 0 && parseInt(e.target.value) <= 24*60) {
+      setStartTime(inputTime*60*1000)
+    } else if(parseInt(e.target.value) >= 24*60) {
+      setInputTime(24*60)
+      setStartTime(24*60*60*1000)
+    } else {
+      setInputTime(1)
+      setStartTime(1*1000)
     }
   }
 
-  const confirmTimeChange = () => {
-    setStartTime(inputTime*60*1000)
+  const checkTimeInput = (e) => {
+    if(e.key === 'Enter') {
+      confirmTimeChange(e)
+      document.activeElement.blur()
+      e.preventDefault()
+    }
   }
 
 
@@ -127,10 +139,11 @@ export default function Timer() {
             </label>
             <div>
               <input 
-                className="dark:bg-zinc-900 dark:border-b border-rose-200 w-8"
+                className="dark:bg-zinc-900 dark:border-b border-rose-200 w-auto text-center"
                 type="number" 
                 name="start-time"
                 onBlur={confirmTimeChange}
+                onKeyDown={checkTimeInput}
                 onChange={timeChange}
                 value={inputTime}
               />
