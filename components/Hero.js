@@ -9,7 +9,7 @@ export default function Hero() {
     setTitle(rand)
   }
   return(
-    <section className="w-fit">
+    <section className="w-full">
       <div>Hi! I am</div>
       <div className="py-4">
         <div className="text-4xl md:text-5xl lg:text-7xl dark:text-rose-200">Dainyl Cua!</div>

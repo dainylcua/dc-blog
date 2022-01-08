@@ -8,24 +8,34 @@ export default function Nav() {
     <nav className="h-auto">
       <div className="flex justify-between py-4">
         <div className="flex justify-between w-2/3">
-          <NavLink name="Home" href=""/>
-          <NavLink name="Blogposts" href="blogposts"/>
-          <NavLink name="Goals" href="goals"/>
-          <NavLink name="Pomodoro" href="pomodoro"/>
-          <NavLink name="Info" href="my-info"/>
+          <Link href="/" passHref>
+            <NavLink name="Home"/>
+          </Link>
+          <Link href="/blogposts" passHref>
+            <NavLink name="Blogposts"/>
+          </Link>
+          <Link href="/goals" passHref>
+            <NavLink name="Goals"/>
+          </Link>
+          <Link href="/pomodoro" passHref>
+            <NavLink name="Pomodoro"/>
+          </Link>
+          <Link href="/info" passHref>
+            <NavLink name="Info"/>
+          </Link>
         </div>
         <div className="w-1/5 self-center pr-4">
             <IconContext.Provider value={{ className: "text-zinc-900 hover:text-zinc-500 dark:text-rose-200 dark:hover:text-rose-100 cursor-pointer ", size: "1.5em"}}>
               <div className="flex justify-between">
-                <Link passHref href="https://github.com/dainylcua/">
+                <a href="https://github.com/dainylcua/">
+                </a>
                   <SiGithub />
-                </Link>
-                <Link passHref href="https://www.linkedin.com/in/dainylcua/">
+                <a href="https://www.aedin.com/in/dainylcua/">
                   <SiLinkedin />
-                </Link>
-                <Link passHref href="https://twitter.com/dainylcua">
+                </a>
+                <a href="https://twitter.com/dainylcua">
                   <SiTwitter />
-                </Link>
+                </a>
               </div>
             </IconContext.Provider>
         </div>

@@ -1,9 +1,12 @@
 import Container from "../components/Container"
+import Timer from "../components/Timer"
 
 export default function Pomodoro() {
   return (
     <Container>
-      <div>pomodoro</div>
+      <div>
+        <Timer />
+      </div>
     </Container>
   )
 }
