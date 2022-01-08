@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Container from "../components/Container"
 import { getBlogposts } from "../utils/contentful-graphql"
+import Link from "next/link"
 
 
 
@@ -13,6 +14,7 @@ export const getStaticProps = async () => {
   }
 }
 
+
 export default function BlogPosts({blogposts}) {
   return (
     <Container>
@@ -23,7 +25,11 @@ export default function BlogPosts({blogposts}) {
         {
           blogposts.map((blogpost) => (
             <div key={blogpost.slug}>
-              {blogpost.title}
+              <Link href={`/blogposts/${blogpost.slug}`}>
+              <a>
+                {blogpost.title}
+              </a>
+              </Link>
             </div>
           ))
         }

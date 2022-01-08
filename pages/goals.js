@@ -13,7 +13,6 @@ export const getStaticProps = async () => {
 }
 
 export default function Goals({goals}) {
-  console.log(goals)
   return (
     <Container>
       <Head>
