@@ -2,7 +2,7 @@ import FooterLink from "./FooterLink"
 import ScrollToTop from "../ScrollToTop"
 export default function Footer() {
   return(
-    <footer>
+    <footer className="pb-24">
       <div className="border border-zinc-900 dark:border-rose-200 rounded-t-full h-[1.5px]"></div>
       <div className="flex flex-col items-start w-full py-4 md:flex-row md:gap-y-4 justify-evenly">
         <div className="flex-col w-full md:w-1/3">
