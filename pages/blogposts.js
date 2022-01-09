@@ -20,6 +20,7 @@ export const getStaticProps = async () => {
 
 export default function BlogPosts({blogposts, tags}) {
   const [filters, setFilters] = useState([])
+  const [displayBlogs, setDisplayBlogs] = useState(blogposts)
 
   const onClick = (e) => {
     const filterName = e.target.textContent
@@ -30,7 +31,16 @@ export default function BlogPosts({blogposts, tags}) {
     }
   }
 
-  const filterProps = {filters, setFilters, onClick, tags}
+  useEffect(() => {
+    if(!filters.length) {
+      setDisplayBlogs(blogposts)
+    } else {
+      const foundBlogs = blogposts.filter((blog) => blog.contentfulMetadata.tags.some((tag) => filters.indexOf(tag.name) >= 0 ))
+      setDisplayBlogs(foundBlogs)
+    }
+  }, [filters, blogposts])
+
+  const filterProps = {filters, onClick, tags}
 
   return (
     <Container>
@@ -42,7 +52,7 @@ export default function BlogPosts({blogposts, tags}) {
       <Filter {...filterProps} />
       <div className="flex flex-col lg:justify-between md:flex-row md:flex-wrap gap-x-8 gap-y-8">
         {
-          blogposts.map((blogpost) => (
+          displayBlogs.map((blogpost) => (
             <Blogpost key={blogpost.slug} blogpost={blogpost} />
           ))
         }

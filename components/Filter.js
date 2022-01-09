@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react'
-
-export default function Filter({tags, filters, setFilters, onClick}){
-  const inactiveColor = 'bg-zinc-200, dark:bg-zinc-800'
-  const activeColor = 'bg-zinc-300, dark:bg-zinc-700'
+export default function Filter({tags, filters, onClick}){
+  const inactiveColor = 'bg-zinc-200 dark:bg-zinc-800'
+  const activeColor = 'bg-zinc-300 dark:bg-zinc-700'
 
   return(
     <div className="w-full py-12">
