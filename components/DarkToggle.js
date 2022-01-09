@@ -30,7 +30,7 @@ export default function DarkToggle() {
   }, [isDark])
 
   return(
-    <div className="absolute p-4 top-4 right-4">
+    <div className="absolute p-4 top-2 right-2">
       <button onClick={() => setIsDark((prev) => !prev)}>
         <IconContext.Provider value={{ className: "text-rose-900 hover:text-rose-500 dark:text-sky-200 dark:hover:text-sky-100 cursor-pointer ", size: "2.5em"}}>
           {

@@ -4,13 +4,14 @@ export default function Filter({tags, filters, onClick}){
 
   return(
     <div className="w-full py-12">
+      <div>Filter posts by tag:</div>
       <div className="flex flex-row items-center w-full h-16 overflow-auto gap-x-2">
         {
           tags.map((tag) => (
             <button 
               key={tag.name} 
               onClick={onClick}
-              className={`py-1 px-2 w-fit whitespace-nowrap h-fit ${filters.includes(tag.name) ? activeColor : inactiveColor}`}>
+              className={`py-1 px-2 w-fit whitespace-nowrap h-fit shadow-lg ${filters.includes(tag.name) ? activeColor : inactiveColor}`}>
               {tag.name}
             </button>
           ))
