@@ -20,7 +20,7 @@ export default function Hero() {
       </div>
       <div className="text-zinc-800 dark:text-zinc-200">
         <div className="w-4/5 pb-4">I love creating elegant, accessible apps that help solve problems. I primarily use the MERN stack and Jamstack, but I can pick up whatever technology is needed.</div>
-        <div>Check out my&nbsp;
+        <div className="font-bold">Check out my&nbsp;
           <span>
             <a className="underline cursor-pointer text-sky-600 dark:text-sky-300"
               href="https://github.com/dainylcua/dc-resume/raw/main/Dainyl%20Cua%20-%20Tech%20Resume%20General.pdf" 
