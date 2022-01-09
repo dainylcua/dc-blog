@@ -77,3 +77,20 @@ export const getBlogpost = async (slug) => {
   }
   return client.request(blogpostQuery, variables)
 }
+
+export const getTags = async () => {
+  const tagsQuery = gql`
+    {
+      tagPostCollection {
+        items {
+          contentfulMetadata {
+            tags {
+              name
+            }
+          }
+        }
+      }
+    }
+  `
+  return client.request(tagsQuery)
+}
