@@ -109,7 +109,7 @@ export default function Timer() {
   
   return(
     <section className="flex flex-col w-full">
-      <div className="w-4/5 py-8 mx-auto text-lg md:text-3xl dark:bg-zinc-800 bg-zinc-200 rounded-xl">
+      <div className="w-4/5 py-8 mx-auto text-lg shadow-lg md:text-3xl dark:bg-zinc-800 bg-zinc-200 rounded-xl">
         <TimerDisplay {...timerDisplayProps} />
         <TimerBar {...timerProps}/>
         <TimerButtons {...timerButtonProps} />

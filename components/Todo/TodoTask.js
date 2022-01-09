@@ -36,7 +36,7 @@ export default function TodoTask({todo, handleRemove}) {
   const todoChecklistProps = {checklist, handleChecklistRemove, checklistSubmit, checklistInput, inputChange}
 
   return(
-    <div className="flex flex-col w-full px-8 py-4 dark:bg-zinc-800 bg-zinc-200 rounded-xl">
+    <div className="flex flex-col w-full px-8 py-4 shadow-lg dark:bg-zinc-800 bg-zinc-200 rounded-xl">
       <div className="flex items-center justify-between pb-4">
         <div className="overflow-hidden break-words max-w-[70%] text-left">
           {todo.value}
