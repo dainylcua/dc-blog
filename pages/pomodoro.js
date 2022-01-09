@@ -20,7 +20,7 @@ export default function Pomodoro() {
           here!
         </a>
       </div>
-      <div>
+      <div className="flex flex-col py-8">
         <Timer />
         <Todo />
       </div>

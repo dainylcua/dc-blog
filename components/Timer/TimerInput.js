@@ -1,12 +1,12 @@
 export default function TimerInput({confirmTimeChange, checkTimeInput, timeChange, inputTime}) {
   return(
-    <div className="flex flex-col items-center">
-            <label htmlFor="productive">
-              Set Timer (minutes)
+    <div className="flex flex-row items-center w-full">
+            <label htmlFor="productive" className="w-1/3">
+              Timer (min)
             </label>
-            <div>
+            <div className="w-2/3">
               <input 
-                className="w-auto text-center border-b dark:bg-zinc-900 dark:border-rose-200 bg-zinc-100 border-zinc-900"
+                className="w-full text-center border-b dark:bg-zinc-900 dark:border-rose-200 bg-zinc-100 border-zinc-900"
                 type="number" 
                 name="start-time"
                 onBlur={confirmTimeChange}

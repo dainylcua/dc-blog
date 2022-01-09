@@ -23,7 +23,7 @@ export default function Todo() {
   }
 
   const handleRemove = (e) => {
-    const count = e.target.getAttribute('id')
+    const count = e.target.parentElement.getAttribute('id')
     setTodos(allTodos => allTodos.filter((todo) => todo.count != count))
   }
 
@@ -35,10 +35,11 @@ export default function Todo() {
 
 
   return(
-    <section className="flex flex-col items-center w-full mx-auto">
-      <div>Todo List</div>
+    <section className="flex flex-col items-center w-4/5 mx-auto">
+      <div className="w-full text-2xl">Todo List</div>
+      <div className="w-full border border-zinc-900 dark:border-rose-200 opacity-50 rounded-full h-[1.5px]"></div>
       <TodoInput {...inputProps} />
-      <div className="flex flex-col items-center w-3/5 text-center">
+      <div className="flex flex-col items-center w-full text-center md:w-4/5 gap-y-8">
         {
           todos.length ? 
             todos.map((todo) => (

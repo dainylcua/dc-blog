@@ -82,9 +82,12 @@ export default function Timer() {
       setTimerColor('dark:bg-rose-500 bg-lime-500')
     } else {
       if(time <= 0) {
+        const audio = new Audio("/mixkit-short-rooster-crowing-2470.wav")
+        audio.play()
         setTimerStatus(false)
         resetTimer()
         toggleProductive()
+        
       }
       clearInterval(interval)
       setTimerColor('dark:bg-sky-500 bg-amber-500')
@@ -106,10 +109,12 @@ export default function Timer() {
   
   return(
     <section className="flex flex-col w-full">
-      <TimerDisplay {...timerDisplayProps} />
-      <TimerBar {...timerProps}/>
-      <div className="w-3/5 mx-auto flex flex-col items-center">
+      <div className="w-4/5 py-8 mx-auto text-lg md:text-3xl dark:bg-zinc-800 bg-zinc-200 rounded-xl">
+        <TimerDisplay {...timerDisplayProps} />
+        <TimerBar {...timerProps}/>
         <TimerButtons {...timerButtonProps} />
+      </div>
+      <div className="flex flex-col items-center w-3/5 py-8 mx-auto">
         <TimerPopout {...timerPopoutProps} />
       </div>
     </section>
