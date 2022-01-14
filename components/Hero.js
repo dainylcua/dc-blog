@@ -11,7 +11,7 @@ export default function Hero() {
   return(
     <section className="w-full">
       <div className="pb-8">
-        <div className="text-5xl lg:text-7xl dark:text-rose-200">Dainyl Cua</div>
+        <div className="pb-2 text-5xl lg:text-7xl dark:text-rose-200">Dainyl Cua</div>
         <button 
           className="hidden md:block text-2xl lg:text-3xl dark:text-rose-100 text-zinc-800 lg:animate-[pulse_5s_ease-in-out_infinite] lg:hover:animate-[none_1s_ease-in]"
           onClick={changeTitle}

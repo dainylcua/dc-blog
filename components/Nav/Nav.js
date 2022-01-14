@@ -35,7 +35,7 @@ export default function Nav() {
                   <a href="https://github.com/dainylcua/">
                     <SiGithub />
                   </a>
-                  <a href="https://www.aedin.com/in/dainylcua/">
+                  <a href="https://www.linkedin.com/in/dainylcua/">
                     <SiLinkedin />
                   </a>
                   <a href="https://twitter.com/dainylcua">
