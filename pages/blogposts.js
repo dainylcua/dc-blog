@@ -6,8 +6,7 @@ import Blogpost from "../components/Blogpost"
 import Filter from "../components/Filter"
 import { useState, useEffect } from 'react'
 
-
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await getBlogposts()
   const tags = await getTags()
   return {
