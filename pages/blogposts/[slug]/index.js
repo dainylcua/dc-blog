@@ -23,7 +23,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const blogpostStyling = "prose lg:prose-xl prose-zinc dark:prose-invert dark:prose-h1:text-rose-200 dark:prose-h2:text-rose-200 prose-img:rounded-lg"
+const blogpostStyling = "prose prose-lg lg:prose-xl prose-zinc dark:prose-invert dark:prose-h1:text-rose-200 dark:prose-h2:text-rose-200 dark:prose-h3:text-sky-200 prose-img:rounded-lg hover:prose-a:text-zinc-500 dark:prose-a:text-rose-400 hover:dark:prose-a:text-rose-200"
 
 export default function Blogpost({blogpost}) {
   return(
