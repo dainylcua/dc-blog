@@ -3,7 +3,7 @@ import { getBlogpost, getBlogposts } from "../../../utils/contentful-graphql"
 import Container from "../../../components/Container"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
-export const getStaticPaths = async () => {
+export const getServerSidePaths = async () => {
   const data = await getBlogposts()
   data.blogpostCollection.items.map((blogpost) => ({ params: { blogpost: blogpost.slug }}))
 
@@ -13,7 +13,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const data = await getBlogpost(context.params.slug)
 
   return {
